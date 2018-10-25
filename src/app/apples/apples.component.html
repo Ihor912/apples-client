@@ -1,3 +1,13 @@
-<ul>
-  <li *ngFor="let apple of applesService.apples">{{apple.name}}</li>
-</ul>
+<mat-list role="list">
+  <mat-list-item 
+    *ngFor="let apple of applesService.applesSource | async" 
+    role="listitem">
+      <mat-divider></mat-divider>
+      {{apple.name}}
+      {{apple.weight}}
+      <button mat-button class="layout-sm" (click)="modify(apple)">Modify</button>
+      <button mat-button class="layout-sm" (click)="remove(apple)">Remove</button>
+  </mat-list-item>
+</mat-list>
+
+<button mat-button (click)="create()">Add</button>

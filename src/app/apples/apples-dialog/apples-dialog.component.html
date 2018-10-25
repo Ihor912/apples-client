@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>{{data.header}}</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <input matInput [(ngModel)]="name" placeholder="Apple's Name">
+  </mat-form-field>
+  <mat-form-field>
+    <input type="number" matInput [(ngModel)]="weight" placeholder="Apple's Weight">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button (click)="onOk()" cdkFocusInitial>Ok</button>
+</div>
