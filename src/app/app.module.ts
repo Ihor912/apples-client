@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import {
   MatButtonModule,
   MatDialogModule,
@@ -9,7 +10,8 @@ import {
   MatFormFieldModule,
   MatInputModule,
   MatListModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatSnackBarModule,
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -17,6 +19,7 @@ import { AppComponent } from './app.component';
 import { ApplesComponent } from './apples/apples.component';
 import { ApplesService } from './apples/apples.service';
 import { ApplesDialogComponent } from './apples/apples-dialog/apples-dialog.component';
+import { HttpRequestor } from './common/http-requestor';
 
 @NgModule({
   declarations: [
@@ -30,6 +33,7 @@ import { ApplesDialogComponent } from './apples/apples-dialog/apples-dialog.comp
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,
@@ -37,9 +41,11 @@ import { ApplesDialogComponent } from './apples/apples-dialog/apples-dialog.comp
     MatFormFieldModule,
     MatInputModule,
     MatListModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatSnackBarModule,
   ],
   providers: [
+    HttpRequestor,
     ApplesService,
     { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false} }
   ],
