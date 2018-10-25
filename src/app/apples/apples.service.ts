@@ -45,6 +45,7 @@ export class ApplesService implements OnDestroy {
         const apples = this.apples();
         const itemIndex = apples.indexOf(apple);
         if (itemIndex !== -1) {
+          apples.splice(itemIndex, 1);
           apples.splice(itemIndex, 0, apple);
         }
 
